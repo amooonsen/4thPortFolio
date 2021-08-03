@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>싸니까 믿으니까 인터파크도서</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet"> <!--나눔 고딕 폰트 -->
+
+    <script>
+        function setCookie(name, value, expiredays) {
+            let date = new Date();
+            date.setDate(date.getDate() + expiredays);
+            document.cookie = escape(name) + "=" + escape(value) + "; expires=" + date.toUTCString();
+        }
+
+        function closePopup() {
+            if (document.getElementById("check").value) {
+                setCookie("popupYN", "N", 1);
+                self.close();
+            }
+        }
+    </script>
+
+    <style>
+
+
+    #popUpWrap {width: 400px; height: 480px; display: flex; flex-direction: column; overflow: hidden;}
+
+    #checkBoxWrap {width: auto; height: auto; background: transparent; display: flex;}
+    input[id=check] {width: 15px; height: 15px;}
+    #checkBoxWrap p {font-size: 11px; position: relative; top: -6px; font-family: 'Nanum Gothic', sans-serif; font-weight: bold; letter-spacing: -1px; padding-left: 5px;}
+
+    .popUpImg {cursor: pointer;}
+    .popUpImg img {width: 400px; height: 450px;}
+
+
+</style>
+
+
+</head>
+<body>
+    <div id="popUpWrap">
+        <div class="popUpImg">
+            <a href="#"><img src="img/main/popup/main_popup.jpg" alt="mainSampleAdd" usemap="#MainPopFreeMap" border="0"></a>
+
+        </div>
+
+        <div id="checkBoxWrap">
+
+            <input type="checkbox" id="check" onclick="closePopup();">
+            <p>오늘 그만보기</p>
+        </div>
+    </div>
+
+
+
+</body>
+</html>
+

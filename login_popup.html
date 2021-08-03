@@ -1,0 +1,157 @@
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <meta charset="utf-8">
+    <title>login page</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet"> <!--나눔 고딕 폰트 -->
+
+    <style>
+
+    * {margin: 0; box-sizing: border-box; padding: 0;}
+    ul,li,ol {list-style: none; margin: 0; padding: 0;}
+    a {  text-decoration: none; }
+    body {margin: 0; padding: 0;}
+
+    #loginPopupWrap {width: 400px; height: 490px; margin: 0 auto;}
+    .popupTitle {width: 100%; line-height: 40px; background: #999; text-align: center; color: #f8f8f8; font-size: 18px; letter-spacing: 1px;}
+
+    .loginForm {width: 100%; height: 150px; background: transparent; display: flex; flex-direction: column; justify-content: space-between;}
+    input[type="text"] {height: 30%; border: 1px solid #ccc; padding-top: 5px;}
+    input[type="password"] {height: 30%; border: 1px solid #ccc;}
+    input[id="signinBtn"] {height: 30%; border-radius: 5px; border: #ef3e42; background-color: #ef324e; color: #f8f8f8; font-size: 16px; cursor: pointer;}
+
+    .loginCheck {display: flex; padding-top: 20px;}
+    .loginCheck p {padding: 0 5px; font-size: 13px;}
+    input[type="checkbox"] {margin: 2.5px; color: #eee; opacity: 0.4;}
+
+    .otherSite {width: 100%; height: 150px; background: transparent; margin-top: 30px; }
+
+    .naver {height: 30%; border: 1px solid #23ba09; display: flex; justify-content: space-between;}
+    .navericon {width: 15%; height: 100%; background-color: #23ba09;}
+    .navertext {width: 85%; height: 100%; background-color: transparent; text-align: center;  display: flex; justify-content: center; align-items: center;}
+    .navertext h6 {font-size: 16px; font-weight: normal;}
+
+    .kakao {height: 30%; border: 1px solid #ffd800; display: flex; justify-content: space-between;}
+    .kakaoicon {width: 15%; height: 100%; background-color: #ffd800;}
+    .kakaotext {width: 85%; height: 100%; background-color: transparent; text-align: center; display: flex; justify-content: center; align-items: center;}
+    .kakaotext h6 {font-size: 16px; font-weight: normal;}
+
+    .payco {height: 30%; border: 1px solid #fa2829; display: flex; justify-content: space-between; border-radius: 5px;}
+    .paycoicon {width: 15%; height: 100%; background-color: #fa2829;}
+    .paycotext {width: 85%; height: 100%; background-color: transparent; text-align: center; display: flex; justify-content: center; align-items: center;}
+    .paycotext h6 {font-size: 16px; font-weight: normal;}
+
+
+
+
+    .searchJoin p {font-size: 14px; letter-spacing: -1px; color: #666;} 
+    .searchJoin ul {display: flex; margin-top: 20px;}
+    .searchJoin ul li {padding: 0 5px; font-size: 12px; color: #666;}
+    .searchJoin ul li a {color: #666;}
+
+
+  </style>
+  </head>
+
+  <body>
+
+    <div id="loginPopupWrap">
+
+      <div class="popupTitle">
+        <h4>로그인</h4>
+      </div>
+
+      <!-- 로그인 폼 -->
+      <div class="loginForm">
+        <input type="text" placeholder="아이디" id="userid">
+        <input type="password" placeholder="비밀번호" id="userpw">
+        <input type="button" value="로그인" id="signinBtn">
+      </div>
+
+      <!-- 로그인 체크박스 -->
+
+      <div class="loginCheck">
+        <input type="checkbox" name="keepLogin"><p>로그인 상태 유지</p>
+        <input type="checkbox" name="rememberId"><p>아이디 저장</p>
+
+      </div>
+
+      <!-- 네이버,카카오,페이코 -->
+
+      <div class="otherSite">
+        <div class="naver">
+          <div class="navericon"></div>
+          <div class="navertext">
+            <h6>네이버 로그인</h6>
+          </div>
+        </div>
+
+        <div class="kakao">
+            <div class="kakaoicon"></div>
+          <div class="kakaotext">
+            <h6>카카오 로그인</h6>
+          </div>
+        </div>
+
+        <div class="payco">
+            <div class="paycoicon"></div>
+          <div class="paycotext">
+            <h6>페이코 로그인</h6>
+          </div>
+        </div>
+
+
+      </div> <!-- 로그인 끝 -->
+
+      <div class="searchJoin">
+
+      <p>개인정보 보호를 위해 공용 PC에서 사용 후 SNS 계정의 로그아웃 상태를 반드시 확인해주세요.</p>
+
+      <ul>
+        <li><a href="#">아이디 찾기</a></li>
+        <li>|</li>
+        <li><a href="#">아이디 찾기</a></li>
+        <li>|</li>
+        <li><a href="#">회원가입</a></li>
+
+      </ul>
+
+    </div>
+        
+
+    </div>
+
+
+  </body>
+
+
+
+
+  <script>
+
+      var signinButton = document.getElementById("signinButton") // 버튼을 만들고.
+      signinButton.addEventListener('click', signinFunc) // 'click'이란 id의 버튼을 누르면 signinFunc 함수를 실행.
+
+      function signinFunc () {
+        var userid = document.getElementById("userid").value; // userid 의 값을 받아와 넣음.
+        var userpw = document.getElementById("userpw").value; // userpw 의 값을 받아와 넣음.
+
+
+        if(userid == "polytech" && userpw == "12345678") {
+          alert("아이디를 다시 확인 바랍니다.");
+          console.log("로그인 성공했습니다.");
+        } else {
+          alert("비밀번호를 다시 확인 바랍니다.");
+          console.log("로그인 실패했습니다.");
+        }
+
+
+      }
+
+    </script>
+
+
+    </html>
