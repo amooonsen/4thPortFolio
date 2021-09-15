@@ -88,3 +88,197 @@ $.ajax({
 
 만들어놓은 리스트의 li 갯수만큼 데이터를 삽입한 코드입니다.
 
+### Mainpage slide
+
+메인페이지의 슬라이드입니다. 하단 리스트에 mouseenter가 되면 index i번째의
+컨텐츠들이 fadeIn/Out 되도록 구현하였습니다.
+또한 Jquery로 css를 제어해여 backgroundColor와 borderTop이 index 별로
+변경되도록 하였습니다.
+
+```
+      $(function() {
+        let i = 0;
+
+        $(".slider_list li").mouseenter(function () {
+          i = $(this).index()
+        })
+
+        function slide() {
+
+          i++;
+
+          if (i > $(".slider_page:last").index()) {
+            i = 0;
+          }
+          $(".slider_page").eq(i).stop().fadeIn("slow");
+          $(".slider_page").eq(i-1).stop().fadeOut();
+
+          if (i == 1) {
+            $("#slider_wrap").css({
+              "background": "#ffd4d4"
+            })
+            $(".slider_list li").eq(i-1).css({
+              color:"black",
+              borderTop:"none"
+            });
+
+            $(".slider_list li").eq(i).css({
+              borderTop:"3px solid red",
+              margin: "-1px 0 0 0"
+            });
+
+          } else if (i == 2) {
+            $("#slider_wrap").css({
+              "background": "#ebebeb"
+            })
+            $(".slider_list li").eq(i-1).css({
+              color:"black",
+              borderTop:"none"
+            });
+
+            $(".slider_list li").eq(i).css({
+              borderTop:"3px solid red",
+              margin: "-1px 0 0 0"
+            });
+          } else if (i == 3) {
+            $("#slider_wrap").css({
+              "background": "#91d7ff"
+            })
+            $(".slider_list li").eq(i-1).css({
+              color:"black",
+              borderTop:"none",
+              margin: "-1px 0 0 0"
+            });
+
+            $(".slider_list li").eq(i).css({
+              borderTop:"3px solid red",
+              margin: "-1px 0 0 0"
+            });
+          } else if (i == 4) {
+            $("#slider_wrap").css({
+              "background": "#fffed9"
+            })
+            $(".slider_list li").eq(i-1).css({
+              color:"black",
+              borderTop:"none",
+              margin: "-1px 0 0 0"
+            });
+
+            $(".slider_list li").eq(i).css({
+              borderTop:"3px solid red",
+              margin: "-1px 0 0 0"
+            });
+          } else {
+            $("#slider_wrap").css({
+              "background": "#e2faff"
+            })
+            $(".slider_list li").eq(i-1).css({
+              color:"black",
+              borderTop:"none"
+            });
+
+            $(".slider_list li").eq(i).css({
+              borderTop:"3px solid red",
+              margin: "-1px 0 0 0"
+            });
+          }
+
+        }
+
+        $(".slider_list li").eq(0).mouseenter(function () {
+          var i = 0;
+          $("#slider_wrap").css({
+            "background": "#e2faff"
+          });
+          $(".slider_list li").css({
+            borderTop: "none"
+          });
+          $(this).css({
+            borderTop: "3px solid red",
+            margin:"-1px 0 0 0"
+          });
+          $(".slider_page").stop().hide();
+          $(".slider_page").eq(0).stop().show();
+        });
+
+        $(".slider_list li").eq(1).mouseenter(function () {
+          var i = 0;
+          $("#slider_wrap").css({
+            "background": "#ffd4d4"
+          });
+          $(".slider_list li").css({
+            borderTop: "none"
+          });
+          $(this).css({
+            borderTop: "3px solid red",
+
+            margin:"-1px 0 0 0"
+          });
+          $(".slider_page").stop().hide();
+          $(".slider_page").eq(1).stop().show();
+        });
+
+        $(".slider_list li").eq(2).mouseenter(function () {
+          var i = 0;
+          $("#slider_wrap").css({
+            "background": "#ebebeb"
+          });
+          $(".slider_list li").css({
+            borderTop: "none"
+          });
+          $(this).css({
+            borderTop: "3px solid red",
+            margin:"-1px 0 0 0"
+          });
+          $(".slider_page").stop().hide();
+          $(".slider_page").eq(2).stop().show();
+        });
+
+        $(".slider_list li").eq(3).mouseenter(function () {
+          var i = 0;
+          $("#slider_wrap").css({
+            "background": "#91d7ff"
+          });
+          $(".slider_list li").css({
+            borderTop: "none"
+          });
+          $(this).css({
+            borderTop: "3px solid red",
+            margin:"-1px 0 0 0"
+          });
+          $(".slider_page").stop().hide();
+          $(".slider_page").eq(3).stop().show();
+        });
+
+        $(".slider_list li").eq(4).mouseenter(function () {
+          var i = 0;
+          $("#slider_wrap").css({
+            "background": "#fffed9"
+          });
+          $(".slider_list li").css({
+            borderTop: "none"
+          });
+          $(this).css({
+            borderTop: "3px solid red",
+            margin:"-1px 0 0 0"
+          });
+          $(".slider_page").stop().hide();
+          $(".slider_page").eq(4).stop().show();
+        });
+
+        let ani = setInterval(slide, 5000)
+
+        $(".slider_list li").mouseover(function () {
+          clearInterval(ani);
+        });
+
+        $(".slider_list li").mouseout(function () {
+          $(this).css({
+           borderTop: "3px solid red",
+           margin: "-1px 0 0 0"
+         });
+          ani = setInterval(slide, 5000);
+        });
+      })
+```
+
