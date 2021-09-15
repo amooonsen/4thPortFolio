@@ -90,8 +90,8 @@ $.ajax({
 
 ### Mainpage slide
 
-메인페이지의 슬라이드입니다. 하단 리스트에 mouseenter가 되면 index i번째의
-컨텐츠들이 fadeIn/Out 되도록 구현하였습니다.
+메인페이지의 슬라이드입니다. 하단 리스트에 mouseenter가 되면 조건문을 사용해 index i번째의
+컨텐츠들이 fadeIn/Out 되도록 구현하였습니다.<br>
 또한 Jquery로 css를 제어해여 backgroundColor와 borderTop이 index 별로
 변경되도록 하였습니다.
 
